@@ -59,6 +59,8 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="css\reset.css" />
+    <Content Include="img\shortcut-logo.ico" />
     <Content Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -68,29 +70,24 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Scripts\lib\easeljs-0.7.1.min.js" />
-    <Content Include="Scripts\lib\jquery-1.11.1.min.js" />
-    <Content Include="Scripts\lib\preloadjs-0.4.1.min.js" />
-    <Content Include="Scripts\lib\soundjs-0.5.2.min.js" />
-    <Content Include="Scripts\lib\tweenjs-0.5.1.min.js" />
-    <Content Include="Styles\main.css" />
-    <Content Include="index.html" />
+    <Content Include="css\sidescroller.css" />
+    <Content Include="sidescroller.html" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <TypeScriptCompile Include="Scripts\main.ts" />
-    <TypeScriptCompile Include="Scripts\typings\createjs-lib\createjs-lib.d.ts" />
-    <TypeScriptCompile Include="Scripts\typings\easeljs\easeljs.d.ts" />
-    <TypeScriptCompile Include="Scripts\typings\jquery\jquery.d.ts" />
-    <TypeScriptCompile Include="Scripts\typings\preloadjs\preloadjs.d.ts" />
-    <TypeScriptCompile Include="Scripts\typings\soundjs\soundjs.d.ts" />
-    <TypeScriptCompile Include="Scripts\typings\tweenjs\tweenjs.d.ts" />
+    <TypeScriptCompile Include="js\sidescroller.ts" />
+    <TypeScriptCompile Include="js\typings\createjs-lib\createjs-lib.d.ts" />
+    <TypeScriptCompile Include="js\typings\easeljs\easeljs.d.ts" />
+    <TypeScriptCompile Include="js\typings\jquery\jquery.d.ts" />
+    <TypeScriptCompile Include="js\typings\preloadjs\preloadjs.d.ts" />
+    <TypeScriptCompile Include="js\typings\soundjs\soundjs.d.ts" />
+    <TypeScriptCompile Include="js\typings\tweenjs\tweenjs.d.ts" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Images\" />
+    <Folder Include="audio\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
