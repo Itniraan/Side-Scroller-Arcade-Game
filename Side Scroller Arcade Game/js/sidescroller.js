@@ -2,6 +2,17 @@
 var game;
 var queue;
 
+// Game Constants
+var PLAYER_LIVES = 5;
+
+// Fonts!! (
+var TITLE_SCREEN_FONT = "";
+var TITLE_SCREEN_FONT_COLOUR = "";
+var MAIN_GAME_FONT = "";
+var MAIN_GAME_FONT_COLOUR = "";
+var GAME_OVER_FONT = "";
+var GAME_OVER_FONT_COLOUR = "";
+
 function loadQueue() {
     queue = new createjs.LoadQueue();
     queue.installPlugin(createjs.Sound);
