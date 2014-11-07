@@ -60,8 +60,14 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="css\reset.css" />
+    <Content Include="img\cloud.png" />
+    <Content Include="img\island.png" />
+    <Content Include="img\Jet.png" />
+    <Content Include="img\ocean.gif" />
     <Content Include="img\shortcut-logo.ico" />
+    <None Include="js\_references.js" />
     <Content Include="packages.config" />
+    <Content Include="fonts\Alospell-Regular.otf" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -78,6 +84,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <TypeScriptCompile Include="js\constants.ts" />
     <TypeScriptCompile Include="js\sidescroller.ts" />
     <TypeScriptCompile Include="js\typings\createjs-lib\createjs-lib.d.ts" />
     <TypeScriptCompile Include="js\typings\easeljs\easeljs.d.ts" />
@@ -85,8 +92,13 @@
     <TypeScriptCompile Include="js\typings\preloadjs\preloadjs.d.ts" />
     <TypeScriptCompile Include="js\typings\soundjs\soundjs.d.ts" />
     <TypeScriptCompile Include="js\typings\tweenjs\tweenjs.d.ts" />
+    <TypeScriptCompile Include="managers\assets.ts" />
+    <TypeScriptCompile Include="objects\jet.ts" />
+    <TypeScriptCompile Include="objects\ocean.ts" />
+    <TypeScriptCompile Include="objects\scoreBoard.ts" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="assets\" />
     <Folder Include="audio\" />
   </ItemGroup>
   <PropertyGroup>

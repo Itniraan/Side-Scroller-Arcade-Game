@@ -6,3 +6,7 @@ small {
     font-size: small;
     color: black;
 }
+
+canvas {
+    border: 1px solid black;
+}
