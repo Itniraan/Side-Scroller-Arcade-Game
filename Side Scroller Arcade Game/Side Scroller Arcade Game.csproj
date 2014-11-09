@@ -60,11 +60,13 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="css\reset.css" />
-    <Content Include="img\cloud.png" />
-    <Content Include="img\island.png" />
-    <Content Include="img\Jet.png" />
-    <Content Include="img\ocean.gif" />
-    <Content Include="img\shortcut-logo.ico" />
+    <Content Include="assets\img\bullet-basic.png" />
+    <Content Include="assets\img\cloud.png" />
+    <Content Include="assets\img\Endymion_Sprite.png" />
+    <Content Include="assets\img\island.png" />
+    <Content Include="assets\img\Jet.png" />
+    <Content Include="assets\img\ocean.gif" />
+    <Content Include="assets\img\shortcut-logo.ico" />
     <None Include="js\_references.js" />
     <Content Include="packages.config" />
     <Content Include="fonts\Alospell-Regular.otf" />
@@ -98,8 +100,7 @@
     <TypeScriptCompile Include="js\objects\scoreBoard.ts" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="assets\" />
-    <Folder Include="audio\" />
+    <Folder Include="assets\audio\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

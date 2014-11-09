@@ -1,8 +1,8 @@
 ﻿/// <reference path="constants.ts" />
-/// <reference path="../managers/assets.ts" />
-/// <reference path="../objects/jet.ts" />
-/// <reference path="../objects/ocean.ts" />
-/// <reference path="../objects/scoreboard.ts" />
+/// <reference path="managers/assets.ts" />
+/// <reference path="objects/jet.ts" />
+/// <reference path="objects/ocean.ts" />
+/// <reference path="objects/scoreboard.ts" />
 var stage;
 var queue;
 
@@ -11,6 +11,7 @@ var plane;
 var island;
 var ocean;
 var scoreboard;
+var bullet;
 
 // Cloud Array
 var clouds = [];
@@ -20,10 +21,11 @@ function preload() {
     queue.installPlugin(createjs.Sound);
     queue.addEventListener("complete", init);
     queue.loadManifest([
-        { id: "plane", src: "img/Jet.png" },
-        { id: "cloud", src: "img/cloud.png" },
-        { id: "island", src: "img/island.png" },
-        { id: "ocean", src: "img/ocean.gif" }
+        { id: "plane", src: "assets/img/Endymion_Sprite.png" },
+        { id: "cloud", src: "assets/img/cloud.png" },
+        { id: "island", src: "assets/img/island.png" },
+        { id: "ocean", src: "assets/img/ocean.gif" },
+        { id: "bullet", src: "assets/img/bullet-basic.png" }
     ]);
 }
 
@@ -45,7 +47,7 @@ function gameLoop(event) {
     }
 
     plane.update();
-
+    bullet.bulletUpdate();
     collisionCheck();
     scoreboard.update();
     stage.update();
@@ -59,16 +61,36 @@ var Plane = (function () {
         this.height = this.image.getBounds().height;
         this.image.regX = this.width * 0.5;
         this.image.regY = this.height * 0.5;
-        this.image.x = 40;
+        this.dx = 5;
 
         stage.addChild(this.image);
         // Play engine sound forever
         //createjs.Sound.play("engine", 0, 0, 0, -1, 1, 0);
     }
     Plane.prototype.update = function () {
+        this.image.x = stage.mouseX;
         this.image.y = stage.mouseY;
     };
     return Plane;
+})();
+
+var Bullet = (function () {
+    function Bullet() {
+        this.bullet = new createjs.Bitmap("bullet");
+    }
+    Bullet.prototype.fireBullet = function () {
+        this.bullet.x = stage.mouseX + 5;
+        this.bullet.y = stage.mouseY + 5;
+        stage.addChild(this.bullet);
+    };
+
+    Bullet.prototype.bulletUpdate = function () {
+        this.bullet.x += this.dx;
+        if (this.bullet.x >= (stage.canvas.width)) {
+            stage.removeChild(this.bullet);
+        }
+    };
+    return Bullet;
 })();
 
 // Island Class
@@ -232,12 +254,9 @@ function gameStart() {
 
     scoreboard = new scoreBoard();
 
-    point1.x = 0;
-    point1.y = 0;
-
-    point2.x = 100;
-    point2.y = 100;
-
-    console.log(distance(point1, point2));
+    stage.canvas.addEventListener("click", function () {
+        bullet = new Bullet();
+        bullet.fireBullet();
+    });
 }
 //# sourceMappingURL=sidescroller.js.map
