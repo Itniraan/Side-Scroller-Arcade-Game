@@ -71,6 +71,9 @@ var Plane = (function () {
         this.image.x = stage.mouseX;
         this.image.y = stage.mouseY;
     };
+
+    Plane.prototype.bulletFire = function () {
+    };
     return Plane;
 })();
 
@@ -254,7 +257,7 @@ function gameStart() {
 
     scoreboard = new scoreBoard();
 
-    stage.canvas.addEventListener("click", function () {
+    mou("click", function () {
         bullet = new Bullet();
         bullet.fireBullet();
     });
