@@ -59,12 +59,12 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="css\reset.css" />
     <Content Include="assets\img\bullet-basic.png" />
-    <Content Include="assets\img\cloud.png" />
+    <Content Include="assets\img\Einhander_2.png" />
     <Content Include="assets\img\Endymion_Sprite.png" />
     <Content Include="assets\img\island.png" />
-    <Content Include="assets\img\Jet.png" />
+    <Content Include="assets\img\sidescroller-sprites.png" />
+    <Content Include="css\reset.css" />
     <Content Include="assets\img\ocean.gif" />
     <Content Include="assets\img\shortcut-logo.ico" />
     <None Include="js\_references.js" />
@@ -87,6 +87,10 @@
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="js\constants.ts" />
+    <TypeScriptCompile Include="js\managers\collision.ts" />
+    <TypeScriptCompile Include="js\objects\bullet.ts" />
+    <TypeScriptCompile Include="js\objects\enemy.ts" />
+    <TypeScriptCompile Include="js\objects\island.ts" />
     <TypeScriptCompile Include="js\sidescroller.ts" />
     <TypeScriptCompile Include="js\typings\createjs-lib\createjs-lib.d.ts" />
     <TypeScriptCompile Include="js\typings\easeljs\easeljs.d.ts" />
@@ -94,13 +98,13 @@
     <TypeScriptCompile Include="js\typings\preloadjs\preloadjs.d.ts" />
     <TypeScriptCompile Include="js\typings\soundjs\soundjs.d.ts" />
     <TypeScriptCompile Include="js\typings\tweenjs\tweenjs.d.ts" />
-    <TypeScriptCompile Include="js\managers\assets.ts" />
-    <TypeScriptCompile Include="js\objects\jet.ts" />
+    <TypeScriptCompile Include="js\objects\plane.ts" />
     <TypeScriptCompile Include="js\objects\ocean.ts" />
     <TypeScriptCompile Include="js\objects\scoreBoard.ts" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="assets\audio\" />
+    <Folder Include="js\states\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
