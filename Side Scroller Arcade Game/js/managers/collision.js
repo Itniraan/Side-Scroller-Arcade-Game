@@ -1,14 +1,15 @@
 ﻿/// <reference path="../objects/island.ts" />
 /// <reference path="../objects/plane.ts" />
 /// <reference path="../objects/enemy.ts" />
-module managers {
+var managers;
+(function (managers) {
     // The Distance Function
-    export function distance(p1: createjs.Point, p2: createjs.Point): number {
-        var firstPoint: createjs.Point;
-        var secondPoint: createjs.Point;
-        var theXs: number;
-        var theYs: number;
-        var result: number;
+    function distance(p1, p2) {
+        var firstPoint;
+        var secondPoint;
+        var theXs;
+        var theYs;
+        var result;
 
         firstPoint = new createjs.Point();
         secondPoint = new createjs.Point();
@@ -29,11 +30,12 @@ module managers {
 
         return result;
     }
+    managers.distance = distance;
 
     // Check collision between plane and island
-    export function planeAndIsland() {
-        var point1: createjs.Point = new createjs.Point();
-        var point2: createjs.Point = new createjs.Point();
+    function planeAndIsland() {
+        var point1 = new createjs.Point();
+        var point2 = new createjs.Point();
 
         point1.x = plane.image.x;
         point1.y = plane.image.y;
@@ -44,14 +46,16 @@ module managers {
             //createjs.Sound.play("yay");
             scoreboard.score += 100;
             island.reset();
-        };
+        }
+        ;
     }
+    managers.planeAndIsland = planeAndIsland;
 
     // Check collision between plane and cloud
-    export function planeAndEnemy(theEnemy: objects.Enemy) {
-        var p1: createjs.Point = new createjs.Point();
-        var p2: createjs.Point = new createjs.Point();
-        var enemy: objects.Enemy = new objects.Enemy(stage, game);
+    function planeAndEnemy(theEnemy) {
+        var p1 = new createjs.Point();
+        var p2 = new createjs.Point();
+        var enemy = new objects.Enemy(stage, game);
         enemy = theEnemy;
         p1.x = plane.image.x;
         p1.y = plane.image.y;
@@ -63,20 +67,23 @@ module managers {
             enemy.reset();
         }
     }
+    managers.planeAndEnemy = planeAndEnemy;
 
     // Check all collisions
-    export function collisionCheck() {
+    function collisionCheck() {
         planeAndIsland();
         for (var count = 0; count < constants.ENEMY_NUM; count++) {
             planeAndEnemy(enemies[count]);
             bulletAndEnemy(enemies[count]);
-        };
+        }
+        ;
     }
+    managers.collisionCheck = collisionCheck;
 
-    export function bulletAndEnemy(theEnemy: objects.Enemy) {
-        var point1: createjs.Point = new createjs.Point();
-        var point2: createjs.Point = new createjs.Point();
-        var enemy: objects.Enemy = new objects.Enemy(stage, game);
+    function bulletAndEnemy(theEnemy) {
+        var point1 = new createjs.Point();
+        var point2 = new createjs.Point();
+        var enemy = new objects.Enemy(stage, game);
         enemy = theEnemy;
 
         point1.x = bullet.image.x;
@@ -88,6 +95,9 @@ module managers {
             //createjs.Sound.play("yay");
             scoreboard.score += 100;
             enemy.reset();
-        };
+        }
+        ;
     }
-}
+    managers.bulletAndEnemy = bulletAndEnemy;
+})(managers || (managers = {}));
+//# sourceMappingURL=collision.js.map

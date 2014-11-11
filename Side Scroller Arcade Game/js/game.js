@@ -1,53 +1,46 @@
 ﻿/// <reference path="constants.ts" />
-/// <reference path="objects/plane.ts" />
-/// <reference path="managers/collision.ts" />
-/// <reference path="objects/enemy.ts" />
-/// <reference path="objects/bullet.ts" />
+/// <reference path="managers/asset.ts" />
+/// <reference path="objects/cloud.ts" />
 /// <reference path="objects/island.ts" />
-/// <reference path="objects/scoreboard.ts" />
 /// <reference path="objects/ocean.ts" />
+/// <reference path="objects/plane.ts" />
+/// <reference path="objects/scoreboard.ts" />
+/// <reference path="objects/label.ts" />
+/// <reference path="objects/button.ts" />
+/// <reference path="managers/collision.ts" />
+/// <reference path="states/play.ts" />
+/// <reference path="states/menu.ts" />
+/// <reference path="states/gameover.ts" />
+// Mail Pilot Version 11 - Added basic state machine structure - Added Button and Label classes
+// Changed online repo
 var stage;
 var game;
-var queue;
-
-// Game Objects
+var ocean;
 var plane;
 var island;
-var ocean;
+var clouds = [];
 var scoreboard;
-var bullet;
-
-//var newBullet: objects.Bullet;
-// Cloud Array
-var enemies = [];
-
-//var bullets = [];
+var collision;
+var tryAgain;
+var playButton;
 var currentState;
 var currentStateFunction;
 
+// Preload function - Loads Assets and initializes game;
 function preload() {
-    queue = new createjs.LoadQueue();
-    queue.installPlugin(createjs.Sound);
-    queue.addEventListener("complete", init);
-    queue.loadManifest([
-        { id: "plane", src: "assets/img/Endymion_Sprite.png" },
-        { id: "island", src: "assets/img/island.png" },
-        { id: "ocean", src: "assets/img/ocean.gif" },
-        { id: "bullet", src: "assets/img/bullet-basic.png" },
-        { id: "enemy", src: "assets/img/Einhander_2.png" }
-    ]);
+    managers.Assets.init();
+    managers.Assets.loader.addEventListener("complete", init);
 }
 
+// init called after Assets have been loaded.
 function init() {
-    stage = new createjs.Stage(document.getElementById("gameCanvas"));
-    stage.enableMouseOver(20);
+    stage = new createjs.Stage(document.getElementById("canvas"));
+    stage.enableMouseOver(30);
     createjs.Ticker.setFPS(60);
     createjs.Ticker.addEventListener("tick", gameLoop);
     optimizeForMobile();
-
     currentState = constants.MENU_STATE;
     changeState(currentState);
-    //gameStart();
 }
 
 // Add touch support for mobile devices
@@ -62,7 +55,6 @@ function gameLoop(event) {
     currentStateFunction();
     stage.update();
 }
-
 function changeState(state) {
     switch (state) {
         case constants.MENU_STATE:
@@ -83,4 +75,4 @@ function changeState(state) {
             break;
     }
 }
-//# sourceMappingURL=sidescroller.js.map
+//# sourceMappingURL=game.js.map

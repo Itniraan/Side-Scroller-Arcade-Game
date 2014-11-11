@@ -1,13 +1,8 @@
-﻿module objects {
+﻿var objects;
+(function (objects) {
     // Plane Class
-    export class Plane {
-        stage: createjs.Stage;
-        game: createjs.Container;
-        image: createjs.Bitmap;
-        width: number;
-        height: number;
-        dx: number;
-        constructor(stage: createjs.Stage, game: createjs.Container) {
+    var Plane = (function () {
+        function Plane(stage, game) {
             this.stage = stage;
             this.game = game;
             this.image = new createjs.Bitmap(queue.getResult("plane"));
@@ -17,22 +12,20 @@
             this.image.regY = this.height * 0.5;
             this.dx = 5;
 
-
-
             game.addChild(this.image);
-
             // Play engine sound forever
             //createjs.Sound.play("engine", 0, 0, 0, -1, 1, 0);
         }
-
-        update() {
+        Plane.prototype.update = function () {
             this.image.x = stage.mouseX;
             this.image.y = stage.mouseY;
-        }
+        };
 
-        destroy() {
+        Plane.prototype.destroy = function () {
             game.removeChild(this.image);
-        }
-
-    }
-}
+        };
+        return Plane;
+    })();
+    objects.Plane = Plane;
+})(objects || (objects = {}));
+//# sourceMappingURL=plane.js.map

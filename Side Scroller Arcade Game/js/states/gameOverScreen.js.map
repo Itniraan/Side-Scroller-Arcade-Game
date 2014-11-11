@@ -1,0 +1,1 @@
+{"version":3,"file":"gameOverScreen.js","sourceRoot":"","sources":["gameOverScreen.ts"],"names":["states","states.gameOverState","states.gameOver"],"mappings":"AAAA,IAAO,MAAM;AASZ,CATD,UAAO,MAAM;IACTA,SAAgBA,aAAaA;IAE7BC,CAACA;IAFDD,qCAECA;;IAEDA,SAAgBA,QAAQA;QACpBE,IAAIA,GAAGA,IAAIA,QAAQA,CAACA,SAASA,CAACA,CAACA;IAEnCA,CAACA;IAHDF,2BAGCA;AACLA,CAACA,2BAAA"}

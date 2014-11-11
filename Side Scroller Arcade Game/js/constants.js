@@ -6,7 +6,7 @@
     constants.GAME_OVER_STATE = 2;
 
     // Game Constants
-    constants.ENEMY_NUM = 0;
+    constants.ENEMY_NUM = 3;
     constants.LABEL_FONT = "40px Consolas";
     constants.LABEL_COLOUR = "#FFFF00";
     constants.PLAYER_LIVES = 3;

@@ -9,6 +9,7 @@
 
 
 var stage: createjs.Stage;
+var game: createjs.Container;
 var queue;
 
 // Game Objects
@@ -17,11 +18,14 @@ var island: objects.Island;
 var ocean: objects.Ocean;
 var scoreboard: objects.scoreBoard;
 var bullet: objects.Bullet;
-var newBullet: objects.Bullet;
+//var newBullet: objects.Bullet;
 
 // Cloud Array
 var enemies = [];
-var bullets = [];
+//var bullets = [];
+
+var currentState: number;
+var currentStateFunction;
 
 
 function preload(): void {
@@ -42,76 +46,45 @@ function init(): void {
     stage.enableMouseOver(20);
     createjs.Ticker.setFPS(60);
     createjs.Ticker.addEventListener("tick", gameLoop);
-    gameStart();
+    optimizeForMobile();
+
+    currentState = constants.MENU_STATE;
+    changeState(currentState);
+
+    //gameStart();
+}
+
+// Add touch support for mobile devices
+function optimizeForMobile() {
+    if (createjs.Touch.isSupported()) {
+        createjs.Touch.enable(stage);
+    }
 }
 
 // Game Loop
 function gameLoop(event): void {
-    ocean.update();
-    island.update();
-
-    for (var count = 0; count < constants.ENEMY_NUM; count++) {
-        enemies[count].update();
-    }
-
-    plane.update();
-    managers.collisionCheck();
-    scoreboard.update();
-    bullet.bulletUpdate(bullets);
+    currentStateFunction();
     stage.update();
 }
 
 
-
-class Bullet {
-    bullet: createjs.Bitmap;
-    dx: number;
-    constructor() {
-        this.bullet = new createjs.Bitmap("bullet");
-
+function changeState(state: number): void {
+    // Launch Various "screens"
+    switch (state) {
+        case constants.MENU_STATE:
+            // instantiate menu screen
+            currentStateFunction = states.menuState;
+            states.menu();
+            break;
+        case constants.PLAY_STATE:
+            // instantiate play screen
+            currentStateFunction = states.playState;
+            states.play();
+            break;
+        case constants.GAME_OVER_STATE:
+            currentStateFunction = states.gameOverState;
+            // instantiate game over screen
+            states.gameOver();
+            break;
     }
-
-    fireBullet() {
-        this.bullet.x = stage.mouseX + 5;
-        this.bullet.y = stage.mouseY + 5;
-        bullets.push(this.bullet);
-        stage.addChild(this.bullet);
-    }
-
-    bulletUpdate() {
-        this.bullet.x += this.dx;
-        if (this.bullet.x >= (stage.canvas.width)) {
-            stage.removeChild(this.bullet);
-        }
-    }
-}
-
-
-// Main Game Function
-function gameStart(): void {
-    
-
-    ocean = new objects.Ocean();
-    island = new objects.Island();
-    plane = new objects.Plane();
-    bullet = new objects.Bullet();
-
-    for (var count = 0; count < constants.ENEMY_NUM; count++) {
-        enemies[count] = new objects.Enemy();
-    }
-
-    scoreboard = new objects.scoreBoard();
-
-    for (var i = 0; i < constants.BULLET_POOL_SIZE; i++) {
-        // Initalize the bullet object
-        bullet = new objects.Bullet();
-        bullets[i] = bullet;
-    }
-
-    stage.on("click", function (e) {
-        console.log("Fire!!");
-        bullets.push(bullet);
-        bullet.fireBullet();
-    });
-
 }

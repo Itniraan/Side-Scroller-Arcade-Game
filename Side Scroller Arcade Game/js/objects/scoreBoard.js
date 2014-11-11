@@ -2,15 +2,17 @@
 var objects;
 (function (objects) {
     var scoreBoard = (function () {
-        function scoreBoard() {
+        function scoreBoard(stage, game) {
             this.labelString = "null";
             this.lives = constants.PLAYER_LIVES;
             this.score = 0;
+            this.stage = stage;
+            this.game = game;
             this.label = new createjs.Text(this.labelString, constants.LABEL_FONT, constants.LABEL_COLOUR);
             this.update();
             this.width = this.label.getBounds().width;
             this.height = this.label.getBounds().height;
-            stage.addChild(this.label);
+            game.addChild(this.label);
         }
         scoreBoard.prototype.update = function () {
             this.labelString = "Lives: " + this.lives.toString() + " Score: " + this.score.toString();

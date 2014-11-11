@@ -1,14 +1,8 @@
-﻿module objects {
+﻿var objects;
+(function (objects) {
     // Island Class
-    export class Island {
-        image: createjs.Bitmap;
-        stage: createjs.Stage;
-        game: createjs.Container;
-        width: number;
-        height: number;
-        dy: number;
-
-        constructor(stage: createjs.Stage, game: createjs.Container) {
+    var Island = (function () {
+        function Island(stage, game) {
             this.stage = stage;
             this.game = game;
             this.image = new createjs.Bitmap(queue.getResult("island"));
@@ -21,21 +15,23 @@
             game.addChild(this.image);
             this.reset();
         }
-
-        reset() {
+        Island.prototype.reset = function () {
             this.image.x = 630;
             this.image.y = Math.floor(Math.random() * stage.canvas.height);
-        }
+        };
 
-        update() {
+        Island.prototype.update = function () {
             this.image.x -= this.dy;
             if (this.image.x < 0) {
                 this.reset();
             }
-        }
+        };
 
-        destroy() {
+        Island.prototype.destroy = function () {
             game.removeChild(this.image);
-        }
-    }
-}
+        };
+        return Island;
+    })();
+    objects.Island = Island;
+})(objects || (objects = {}));
+//# sourceMappingURL=island.js.map

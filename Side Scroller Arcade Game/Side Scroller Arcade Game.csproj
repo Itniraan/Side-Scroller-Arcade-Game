@@ -91,7 +91,11 @@
     <TypeScriptCompile Include="js\objects\bullet.ts" />
     <TypeScriptCompile Include="js\objects\enemy.ts" />
     <TypeScriptCompile Include="js\objects\island.ts" />
+    <TypeScriptCompile Include="js\objects\label.ts" />
     <TypeScriptCompile Include="js\sidescroller.ts" />
+    <TypeScriptCompile Include="js\states\gameOverScreen.ts" />
+    <TypeScriptCompile Include="js\states\mainMenuScreen.ts" />
+    <TypeScriptCompile Include="js\states\playGameLevelOneScreen.ts" />
     <TypeScriptCompile Include="js\typings\createjs-lib\createjs-lib.d.ts" />
     <TypeScriptCompile Include="js\typings\easeljs\easeljs.d.ts" />
     <TypeScriptCompile Include="js\typings\jquery\jquery.d.ts" />
@@ -104,7 +108,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="assets\audio\" />
-    <Folder Include="js\states\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
