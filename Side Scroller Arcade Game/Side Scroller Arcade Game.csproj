@@ -59,11 +59,13 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="assets\audio\gameStart.mp3" />
     <Content Include="assets\img\bullet-basic.png" />
     <Content Include="assets\img\Einhander_2.png" />
     <Content Include="assets\img\Endymion_Sprite.png" />
     <Content Include="assets\img\instructionsButton.png" />
     <Content Include="assets\img\island.png" />
+    <Content Include="assets\img\okButton.png" />
     <Content Include="assets\img\playButton.png" />
     <Content Include="assets\img\sidescroller-sprites.png" />
     <Content Include="css\reset.css" />
@@ -108,9 +110,7 @@
     <TypeScriptCompile Include="js\objects\ocean.ts" />
     <TypeScriptCompile Include="js\objects\scoreBoard.ts" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="assets\audio\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

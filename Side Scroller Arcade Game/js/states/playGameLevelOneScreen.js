@@ -13,6 +13,7 @@
         scoreboard.update();
 
         if (scoreboard.lives <= 0) {
+            states.getHighScore(scoreboard.score);
             stage.removeChild(game);
             plane.destroy();
             ocean.destroy();

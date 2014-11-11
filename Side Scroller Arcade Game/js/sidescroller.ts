@@ -12,10 +12,7 @@ var stage: createjs.Stage;
 var game: createjs.Container;
 var queue;
 
-// Buttons
-var playButton;
-var instructionsButton;
-var playAgainButton;
+
 
 // Game Objects
 var plane: objects.Plane;
@@ -36,15 +33,18 @@ var currentStateFunction;
 function preload(): void {
     queue = new createjs.LoadQueue();
     queue.installPlugin(createjs.Sound);
+    createjs.Sound.alternateExtensions = ["mp3"];
     queue.addEventListener("complete", init);
     queue.loadManifest([
+        { id: "gameStartAudio", src: "assets/audio/gameStart.mp3" },
         { id: "plane", src: "assets/img/Endymion_Sprite.png" },
         { id: "island", src: "assets/img/island.png" },
         { id: "ocean", src: "assets/img/ocean.gif" },
         { id: "bullet", src: "assets/img/bullet-basic.png" },
         { id: "enemy", src: "assets/img/Einhander_2.png" },
         { id: "playButton", src: "assets/img/playButton.png" },
-        { id: "instructionsButton", src: "assets/img/instructionsButton.png" }
+        { id: "instructionsButton", src: "assets/img/instructionsButton.png" },
+        { id: "okButton", src: "assets/img/okButton.png" }
     ]);
 }
 
