@@ -32,6 +32,7 @@ function preload() {
     queue.addEventListener("complete", init);
     queue.loadManifest([
         { id: "gameStartAudio", src: "assets/audio/gameStart.mp3" },
+        { id: "explosionAudio", src: "assets/audio/Explosion.mp3" },
         { id: "plane", src: "assets/img/Endymion_Sprite.png" },
         { id: "island", src: "assets/img/island.png" },
         { id: "ocean", src: "assets/img/ocean.gif" },
@@ -39,7 +40,8 @@ function preload() {
         { id: "enemy", src: "assets/img/Einhander_2.png" },
         { id: "playButton", src: "assets/img/playButton.png" },
         { id: "instructionsButton", src: "assets/img/instructionsButton.png" },
-        { id: "okButton", src: "assets/img/okButton.png" }
+        { id: "okButton", src: "assets/img/okButton.png" },
+        { id: "playAgainButton", src: "assets/img/playAgainButton.png" }
     ]);
 }
 
@@ -50,7 +52,7 @@ function init() {
     createjs.Ticker.addEventListener("tick", gameLoop);
     optimizeForMobile();
 
-    currentState = constants.MENU_STATE;
+    currentState = constants.GAME_OVER_STATE;
     changeState(currentState);
     //gameStart();
 }

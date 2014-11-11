@@ -8,6 +8,7 @@
         // Buttons
         var playButton: createjs.Bitmap;
         var instructionsButton: createjs.Bitmap;
+        var instructionsLabel: objects.Label;
         var okButton: createjs.Bitmap;
 
         game = new createjs.Container();

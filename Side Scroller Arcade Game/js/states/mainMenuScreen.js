@@ -9,6 +9,7 @@
         // Buttons
         var playButton;
         var instructionsButton;
+        var instructionsLabel;
         var okButton;
 
         game = new createjs.Container();

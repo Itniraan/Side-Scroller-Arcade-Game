@@ -43,6 +43,23 @@ module managers {
         if (distance(point1, point2) < ((plane.height * 0.5) + (island.height * 0.5))) {
             //createjs.Sound.play("yay");
             scoreboard.score += 100;
+            switch (scoreboard.score) {
+                case 1000:
+                    scoreboard.lives += 1;
+                    break;
+                case 2000:
+                    scoreboard.lives += 1;
+                    break;
+                case 3000:
+                    scoreboard.lives += 1;
+                    break;
+                case 4000:
+                    scoreboard.lives += 1;
+                    break;
+                case 5000:
+                    scoreboard.lives += 1;
+                    break;
+            }
             island.reset();
         };
     }
@@ -58,7 +75,7 @@ module managers {
         p2.x = enemy.image.x;
         p2.y = enemy.image.y;
         if (distance(p1, p2) <= ((plane.height * 0.5) + (enemy.height * 0.5))) {
-            //createjs.Sound.play("thunder");
+            createjs.Sound.play("explosionAudio");
             scoreboard.lives -= 1;
             enemy.reset();
         }
