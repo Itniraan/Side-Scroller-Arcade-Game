@@ -1,4 +1,4 @@
-﻿/// <reference path="../objects/island.ts" />
+﻿/// <reference path="../objects/star.ts" />
 /// <reference path="../objects/plane.ts" />
 /// <reference path="../objects/enemy.ts" />
 module managers {
@@ -38,29 +38,36 @@ module managers {
         point1.x = plane.image.x;
         point1.y = plane.image.y;
 
-        point2.x = island.image.x;
-        point2.y = island.image.y;
-        if (distance(point1, point2) < ((plane.height * 0.5) + (island.height * 0.5))) {
-            //createjs.Sound.play("yay");
+        point2.x = star.image.x;
+        point2.y = star.image.y;
+        if (distance(point1, point2) < ((plane.height * 0.5) + (star.height * 0.5))) {
             scoreboard.score += 100;
             switch (scoreboard.score) {
                 case 1000:
+                    createjs.Sound.play('lifeUpAudio');
                     scoreboard.lives += 1;
                     break;
                 case 2000:
+                    createjs.Sound.play('lifeUpAudio');
                     scoreboard.lives += 1;
                     break;
                 case 3000:
+                    createjs.Sound.play('lifeUpAudio');
                     scoreboard.lives += 1;
                     break;
                 case 4000:
+                    createjs.Sound.play('lifeUpAudio');
                     scoreboard.lives += 1;
                     break;
                 case 5000:
+                    createjs.Sound.play('lifeUpAudio');
                     scoreboard.lives += 1;
                     break;
+                default:
+                    createjs.Sound.play("pickupAudio");
+                    break;
             }
-            island.reset();
+            star.reset();
         };
     }
 
@@ -107,4 +114,5 @@ module managers {
             enemy.reset();
         };
     }
+
 }

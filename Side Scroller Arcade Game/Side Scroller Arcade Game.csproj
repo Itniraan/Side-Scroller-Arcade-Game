@@ -61,15 +61,17 @@
   <ItemGroup>
     <Content Include="assets\audio\Explosion.mp3" />
     <Content Include="assets\audio\gameStart.mp3" />
+    <Content Include="assets\audio\lifeUp.mp3" />
+    <Content Include="assets\audio\pickupStar.mp3" />
     <Content Include="assets\img\bullet-basic.png" />
     <Content Include="assets\img\Einhander_2.png" />
     <Content Include="assets\img\Endymion_Sprite.png" />
     <Content Include="assets\img\instructionsButton.png" />
-    <Content Include="assets\img\island.png" />
     <Content Include="assets\img\okButton.png" />
     <Content Include="assets\img\playAgainButton.png" />
     <Content Include="assets\img\playButton.png" />
     <Content Include="assets\img\sidescroller-sprites.png" />
+    <Content Include="assets\img\star.png" />
     <Content Include="css\reset.css" />
     <Content Include="assets\img\ocean.gif" />
     <Content Include="assets\img\shortcut-logo.ico" />
@@ -96,7 +98,7 @@
     <TypeScriptCompile Include="js\managers\collision.ts" />
     <TypeScriptCompile Include="js\objects\bullet.ts" />
     <TypeScriptCompile Include="js\objects\enemy.ts" />
-    <TypeScriptCompile Include="js\objects\island.ts" />
+    <TypeScriptCompile Include="js\objects\star.ts" />
     <TypeScriptCompile Include="js\objects\label.ts" />
     <TypeScriptCompile Include="js\sidescroller.ts" />
     <TypeScriptCompile Include="js\states\gameOverScreen.ts" />

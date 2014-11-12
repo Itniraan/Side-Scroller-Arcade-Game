@@ -1,7 +1,7 @@
 ﻿module states {
     export function playState() {
         ocean.update();
-        island.update();
+        star.update();
 
         for (var count = 0; count < constants.ENEMY_NUM; count++) {
             enemies[count].update();
@@ -16,7 +16,7 @@
             stage.removeChild(game);
             plane.destroy();
             ocean.destroy();
-            island.destroy();
+            star.destroy();
 
             game.removeAllChildren();
             game.removeAllEventListeners();
@@ -31,9 +31,10 @@
         game = new createjs.Container();
         stage.cursor = "none";
         ocean = new objects.Ocean(stage, game);
-        island = new objects.Island(stage, game);
+        star = new objects.Star(stage, game);
         plane = new objects.Plane(stage, game);
         bullet = new objects.Bullet(stage, game);
+        
 
         for (var count = 0; count < constants.ENEMY_NUM; count++) {
             enemies[count] = new objects.Enemy(stage, game);

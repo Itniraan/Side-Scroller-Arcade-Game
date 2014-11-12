@@ -1,11 +1,11 @@
 ﻿var objects;
 (function (objects) {
-    // Island Class
-    var Island = (function () {
-        function Island(stage, game) {
+    // Star Class
+    var Star = (function () {
+        function Star(stage, game) {
             this.stage = stage;
             this.game = game;
-            this.image = new createjs.Bitmap(queue.getResult("island"));
+            this.image = new createjs.Bitmap(queue.getResult("star"));
             this.width = this.image.getBounds().width;
             this.height = this.image.getBounds().height;
             this.image.regX = this.width * 0.5;
@@ -15,23 +15,23 @@
             game.addChild(this.image);
             this.reset();
         }
-        Island.prototype.reset = function () {
+        Star.prototype.reset = function () {
             this.image.x = 630;
             this.image.y = Math.floor(Math.random() * stage.canvas.height);
         };
 
-        Island.prototype.update = function () {
+        Star.prototype.update = function () {
             this.image.x -= this.dy;
             if (this.image.x < 0) {
                 this.reset();
             }
         };
 
-        Island.prototype.destroy = function () {
+        Star.prototype.destroy = function () {
             game.removeChild(this.image);
         };
-        return Island;
+        return Star;
     })();
-    objects.Island = Island;
+    objects.Star = Star;
 })(objects || (objects = {}));
 //# sourceMappingURL=island.js.map

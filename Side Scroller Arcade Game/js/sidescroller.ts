@@ -3,7 +3,7 @@
 /// <reference path="managers/collision.ts" />
 /// <reference path="objects/enemy.ts" />
 /// <reference path="objects/bullet.ts" />
-/// <reference path="objects/island.ts" />
+/// <reference path="objects/star.ts" />
 /// <reference path="objects/scoreboard.ts" />
 /// <reference path="objects/ocean.ts" />
 
@@ -16,7 +16,7 @@ var queue;
 
 // Game Objects
 var plane: objects.Plane;
-var island: objects.Island;
+var star: objects.Star;
 var ocean: objects.Ocean;
 var scoreboard: objects.scoreBoard;
 var bullet: objects.Bullet;
@@ -38,11 +38,13 @@ function preload(): void {
     queue.loadManifest([
         { id: "gameStartAudio", src: "assets/audio/gameStart.mp3" },
         { id: "explosionAudio", src: "assets/audio/Explosion.mp3" },
+        { id: "pickupAudio", src: "assets/audio/pickupStar.mp3" },
+        { id: "lifeUpAudio", src: "assets/audio/lifeUp.mp3" },
         { id: "plane", src: "assets/img/Endymion_Sprite.png" },
-        { id: "island", src: "assets/img/island.png" },
         { id: "ocean", src: "assets/img/ocean.gif" },
         { id: "bullet", src: "assets/img/bullet-basic.png" },
         { id: "enemy", src: "assets/img/Einhander_2.png" },
+        { id: "star", src: "assets/img/star.png" },
         { id: "playButton", src: "assets/img/playButton.png" },
         { id: "instructionsButton", src: "assets/img/instructionsButton.png" },
         { id: "okButton", src: "assets/img/okButton.png" },
@@ -57,7 +59,7 @@ function init(): void {
     createjs.Ticker.addEventListener("tick", gameLoop);
     optimizeForMobile();
 
-    currentState = constants.GAME_OVER_STATE;
+    currentState = constants.MENU_STATE;
     changeState(currentState);
 
     //gameStart();

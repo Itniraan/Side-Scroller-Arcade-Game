@@ -1,6 +1,6 @@
 ﻿module objects {
-    // Island Class
-    export class Island {
+    // Star Class
+    export class Star {
         image: createjs.Bitmap;
         stage: createjs.Stage;
         game: createjs.Container;
@@ -11,7 +11,7 @@
         constructor(stage: createjs.Stage, game: createjs.Container) {
             this.stage = stage;
             this.game = game;
-            this.image = new createjs.Bitmap(queue.getResult("island"));
+            this.image = new createjs.Bitmap(queue.getResult("star"));
             this.width = this.image.getBounds().width;
             this.height = this.image.getBounds().height;
             this.image.regX = this.width * 0.5;
