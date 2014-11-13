@@ -1,4 +1,7 @@
-﻿var states;
+﻿/// <reference path="../constants.ts" />
+/// <reference path="../objects/label.ts" />
+/// <reference path="../objects/ocean.ts" />
+var states;
 (function (states) {
     var highScore = 0;
     function gameOverState() {

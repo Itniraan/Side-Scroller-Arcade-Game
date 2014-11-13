@@ -1,4 +1,7 @@
-﻿module states {
+﻿/// <reference path="../constants.ts" />
+/// <reference path="../objects/label.ts" />
+/// <reference path="../objects/ocean.ts" />
+module states {
     var highScore: number = 0;
     export function gameOverState() {
         ocean.update();

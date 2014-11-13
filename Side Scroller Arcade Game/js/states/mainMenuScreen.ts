@@ -1,4 +1,7 @@
-﻿module states {
+﻿/// <reference path="../constants.ts" />
+/// <reference path="../objects/ocean.ts" />
+/// <reference path="../objects/label.ts" />
+module states {
     export function menuState() {
         ocean.update();
 
@@ -9,7 +12,8 @@
         var playButton: createjs.Bitmap;
         var instructionsButton: createjs.Bitmap;
         var instructionsMessage: string = "In this game, your objective is to avoid the enemy fighters, " 
-            + "and save the stars that have been trapped in the desert.";
+            + "and save the stars that have been trapped in the desert. Gain another life "
+            + "everytime you win 1000 points, up to 5000 points. See how many points you can get!";
         var instructionsText: createjs.Text;
         var welcomeMessage: string = "Welcome to Star Savior!";
         var welcomeText: createjs.Text;
@@ -24,7 +28,7 @@
         instructionsButton = new createjs.Bitmap(queue.getResult("instructionsButton"));
         okButton = new createjs.Bitmap(queue.getResult("okButton"));
         okButton.x = 284;
-        okButton.y = 300;
+        okButton.y = 350;
         okButton.visible = false;
         playButton.x = stage.canvas.width / 4;
         playButton.y = 200;

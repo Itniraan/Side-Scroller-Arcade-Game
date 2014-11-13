@@ -1,11 +1,20 @@
 ﻿/// <reference path="constants.ts" />
+/// <reference path="states/mainmenuscreen.ts" />
+/// <reference path="states/playgamelevelonescreen.ts" />
+/// <reference path="states/gameoverscreen.ts" />
 /// <reference path="objects/plane.ts" />
-/// <reference path="managers/collision.ts" />
 /// <reference path="objects/enemy.ts" />
-/// <reference path="objects/bullet.ts" />
+/// <reference path="objects/ocean.ts" />
 /// <reference path="objects/star.ts" />
 /// <reference path="objects/scoreboard.ts" />
-/// <reference path="objects/ocean.ts" />
+/// <reference path="objects/bullet.ts" />
+/**
+File Name: sidescroller.ts
+Author: Blake Murdock
+Website Name: Main TypeScript file for Star Savior Side-Scrolling Arcade Game
+Purpose: This file contains initialization, preload, and state machine for the
+arcade game
+*/
 var stage;
 var game;
 var queue;
@@ -17,16 +26,18 @@ var ocean;
 var scoreboard;
 var bullet;
 
-//var newBullet: objects.Bullet;
-// Cloud Array
+// Enemy Array
 var enemies = [];
 
-//var bullets = [];
+// State variables
 var currentState;
 var currentStateFunction;
 
+// Pre-load function - this loads all of the assets ahead of time
 function preload() {
     queue = new createjs.LoadQueue();
+
+    // Load the sound plugin
     queue.installPlugin(createjs.Sound);
     createjs.Sound.alternateExtensions = ["mp3"];
     queue.addEventListener("complete", init);
@@ -47,6 +58,7 @@ function preload() {
     ]);
 }
 
+// Initialization function - This is where the stage gets created, everything gets set up
 function init() {
     stage = new createjs.Stage(document.getElementById("gameCanvas"));
     stage.enableMouseOver(20);
@@ -54,9 +66,9 @@ function init() {
     createjs.Ticker.addEventListener("tick", gameLoop);
     optimizeForMobile();
 
+    // When game begins, current state will be opening menu (MENU_STATE)
     currentState = constants.MENU_STATE;
     changeState(currentState);
-    //gameStart();
 }
 
 // Add touch support for mobile devices
@@ -68,10 +80,13 @@ function optimizeForMobile() {
 
 // Game Loop
 function gameLoop(event) {
+    // Check current state, then update stage
     currentStateFunction();
     stage.update();
 }
 
+// This is the state machine function, that allows the game to switch to different
+// screens, or states, depending on where the player is in the game
 function changeState(state) {
     switch (state) {
         case constants.MENU_STATE:

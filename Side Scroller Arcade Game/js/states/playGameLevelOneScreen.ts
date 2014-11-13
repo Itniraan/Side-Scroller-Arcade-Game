@@ -1,4 +1,12 @@
-﻿module states {
+﻿/// <reference path="../constants.ts" />
+/// <reference path="../objects/plane.ts" />
+/// <reference path="../objects/enemy.ts" />
+/// <reference path="../objects/star.ts" />
+/// <reference path="../objects/bullet.ts" />
+/// <reference path="../objects/ocean.ts" />
+/// <reference path="../managers/collision.ts" />
+/// <reference path="../objects/scoreboard.ts" />
+module states {
     export function playState() {
         ocean.update();
         star.update();

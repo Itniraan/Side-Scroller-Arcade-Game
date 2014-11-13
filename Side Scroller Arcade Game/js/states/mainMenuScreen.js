@@ -1,4 +1,7 @@
-﻿var states;
+﻿/// <reference path="../constants.ts" />
+/// <reference path="../objects/ocean.ts" />
+/// <reference path="../objects/label.ts" />
+var states;
 (function (states) {
     function menuState() {
         ocean.update();
@@ -9,7 +12,7 @@
         // Buttons
         var playButton;
         var instructionsButton;
-        var instructionsMessage = "In this game, your objective is to avoid the enemy fighters, " + "and save the stars that have been trapped in the desert.";
+        var instructionsMessage = "In this game, your objective is to avoid the enemy fighters, " + "and save the stars that have been trapped in the desert. Gain another life " + "everytime you win 1000 points, up to 5000 points. See how many points you can get!";
         var instructionsText;
         var welcomeMessage = "Welcome to Star Savior!";
         var welcomeText;
@@ -24,7 +27,7 @@
         instructionsButton = new createjs.Bitmap(queue.getResult("instructionsButton"));
         okButton = new createjs.Bitmap(queue.getResult("okButton"));
         okButton.x = 284;
-        okButton.y = 300;
+        okButton.y = 350;
         okButton.visible = false;
         playButton.x = stage.canvas.width / 4;
         playButton.y = 200;
