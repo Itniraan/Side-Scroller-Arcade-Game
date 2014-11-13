@@ -9,12 +9,11 @@
         // Buttons
         var playButton;
         var instructionsButton;
-        var instructionsMessage = "Welcome to Star Savior! \nIn this game, your objective is to avoid the enemy fighters, and save the stars that have been trapped in the desert.";
-        var instructionsLabel1;
-        var instructionsLabel2;
-        var instructionsLabel3;
-        var instructionsLabel4;
-        var instructionsLabel5;
+        var instructionsMessage = "In this game, your objective is to avoid the enemy fighters, " + "and save the stars that have been trapped in the desert.";
+        var instructionsText;
+        var welcomeMessage = "Welcome to Star Savior!";
+        var welcomeText;
+
         var titleMessage = "Star Savior";
         var titleLabel;
         var okButton;
@@ -31,10 +30,20 @@
         playButton.y = 200;
         instructionsButton.x = stage.canvas.width / 4;
         instructionsButton.y = 300;
-        instructionsLabel1 = new objects.Label(200, 50, instructionsMessage);
+        instructionsText = new createjs.Text(instructionsMessage, constants.LABEL_FONT, constants.LABEL_COLOUR);
+        welcomeText = new createjs.Text(welcomeMessage, constants.LABEL_FONT, constants.LABEL_COLOUR);
+        instructionsText.y = 50;
+        welcomeText.y = 10;
+        welcomeText.x = 139;
+        instructionsText.x = 25;
+
+        instructionsText.lineHeight = 40;
+        instructionsText.lineWidth = stage.canvas.width - 10;
+        console.log(instructionsMessage);
 
         //instructionsLabel.lineWidth = 200;
-        instructionsLabel1.visible = false;
+        instructionsText.visible = false;
+        welcomeText.visible = false;
         titleLabel = new objects.Label(284, 50, titleMessage);
         titleLabel.font = "50px Consolas";
 
@@ -63,7 +72,8 @@
             titleLabel.visible = false;
             playButton.visible = false;
             instructionsButton.visible = false;
-            instructionsLabel1.visible = true;
+            instructionsText.visible = true;
+            welcomeText.visible = true;
             okButton.visible = true;
         });
         okButton.addEventListener("mouseover", function () {
@@ -76,13 +86,15 @@
             titleLabel.visible = true;
             playButton.visible = true;
             instructionsButton.visible = true;
-            instructionsLabel1.visible = false;
+            instructionsText.visible = false;
+            welcomeText.visible = false;
             okButton.visible = false;
         });
         game.addChild(titleLabel);
         game.addChild(playButton);
         game.addChild(instructionsButton);
-        game.addChild(instructionsLabel1);
+        game.addChild(welcomeText);
+        game.addChild(instructionsText);
         game.addChild(okButton);
 
         stage.cursor = "default";
