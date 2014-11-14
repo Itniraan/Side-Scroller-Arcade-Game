@@ -76,4 +76,4 @@ var states;
     }
     states.getHighScore = getHighScore;
 })(states || (states = {}));
-//# sourceMappingURL=gameoverscreen.js.map
+//# sourceMappingURL=gameOverScreen.js.map

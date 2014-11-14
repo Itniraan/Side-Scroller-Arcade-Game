@@ -119,4 +119,4 @@ var states;
     }
     states.menu = menu;
 })(states || (states = {}));
-//# sourceMappingURL=mainmenuscreen.js.map
+//# sourceMappingURL=mainMenuScreen.js.map
