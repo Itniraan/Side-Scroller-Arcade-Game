@@ -1,9 +1,9 @@
 ﻿/// <reference path="../constants.ts" />
-/// <reference path="../objects/ocean.ts" />
+/// <reference path="../objects/lava.ts" />
 /// <reference path="../objects/label.ts" />
 module states {
     export function menuState() {
-        ocean.update();
+        lava.update();
 
     }
 
@@ -12,7 +12,7 @@ module states {
         var playButton: createjs.Bitmap;
         var instructionsButton: createjs.Bitmap;
         var instructionsMessage: string = "In this game, your objective is to avoid the enemy fighters, " 
-            + "and save the stars that have been trapped in the desert. Gain another life "
+            + "and save the stars that have been trapped in a volcano. Gain another life "
             + "everytime you win 1000 points, up to 5000 points. See how many points you can get!";
         var instructionsText: createjs.Text;
         var welcomeMessage: string = "Welcome to Star Savior!";
@@ -23,7 +23,7 @@ module states {
         var okButton: createjs.Bitmap;
 
         game = new createjs.Container();
-        ocean = new objects.Ocean(stage, game);
+        lava = new objects.Lava(stage, game);
         playButton = new createjs.Bitmap(queue.getResult("playButton"));
         instructionsButton = new createjs.Bitmap(queue.getResult("instructionsButton"));
         okButton = new createjs.Bitmap(queue.getResult("okButton"));
@@ -58,7 +58,7 @@ module states {
         });
         playButton.addEventListener("click", function () {
             createjs.Sound.play('gameStartAudio');
-            ocean.destroy();
+            lava.destroy();
             game.removeAllChildren;
             game.removeAllEventListeners;
             stage.removeChild(game);

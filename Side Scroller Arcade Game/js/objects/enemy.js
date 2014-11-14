@@ -15,14 +15,13 @@
             this.reset();
         }
         Enemy.prototype.reset = function () {
-            this.image.x = 1000;
+            this.image.x = 1500;
             this.image.y = Math.floor(Math.random() * stage.canvas.height);
-            this.dy = Math.floor(Math.random() * 5 + 5);
-            //this.dx = Math.floor(Math.random() * 4 - 2);
+            this.dx = Math.floor(Math.random() * 5 + 5);
         };
 
         Enemy.prototype.update = function () {
-            this.image.x -= this.dy;
+            this.image.x -= this.dx;
             if (this.image.x < 0) {
                 this.reset();
             }

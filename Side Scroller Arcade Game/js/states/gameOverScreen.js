@@ -1,11 +1,11 @@
 ﻿/// <reference path="../constants.ts" />
 /// <reference path="../objects/label.ts" />
-/// <reference path="../objects/ocean.ts" />
+/// <reference path="../objects/lava.ts" />
 var states;
 (function (states) {
     var highScore = 0;
     function gameOverState() {
-        ocean.update();
+        lava.update();
     }
     states.gameOverState = gameOverState;
 
@@ -16,7 +16,7 @@ var states;
         var finalScoreLabel;
         var playAgainButton;
         game = new createjs.Container();
-        ocean = new objects.Ocean(stage, game);
+        lava = new objects.Lava(stage, game);
         gameOverLabel = new objects.Label(300, 100, gameOverMessage);
         finalScoreLabel = new objects.Label(300, 200, finalScoreMessage);
 
@@ -31,7 +31,7 @@ var states;
             playAgainButton.alpha = 1;
         });
         playAgainButton.addEventListener("click", function () {
-            ocean.destroy();
+            lava.destroy();
             game.removeAllChildren;
             game.removeAllEventListeners;
             stage.removeChild(game);

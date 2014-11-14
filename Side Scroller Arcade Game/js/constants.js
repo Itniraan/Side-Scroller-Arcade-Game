@@ -8,9 +8,9 @@
     // Game Constants
     constants.ENEMY_NUM = 3;
     constants.LABEL_FONT = "30px Consolas";
-    constants.LABEL_COLOUR = "#FFFF00";
+    constants.LABEL_COLOUR = "#FFFFFF";
     constants.PLAYER_LIVES = 3;
-    constants.BULLET_SPEED = 15;
+    constants.BULLET_SPEED = 5;
     constants.BULLET_POOL_SIZE = 50;
 })(constants || (constants = {}));
 //# sourceMappingURL=constants.js.map

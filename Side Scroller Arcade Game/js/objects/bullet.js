@@ -15,20 +15,16 @@ var objects;
             game.addChild(this.image);
         };
 
-        Bullet.prototype.bulletUpdate = function (bullets) {
-            if (typeof bullets === "undefined") { bullets = []; }
-            var bLimit = bullets.length - 1;
-
-            for (var i = bLimit; i >= 0; --i) {
-                bullets[i].x += constants.BULLET_SPEED;
-                if (bullets[i].x > 640) {
-                    stage.removeChild(bullets[i]);
-                    bullets.splice(i, 1);
-                }
+        Bullet.prototype.bulletUpdate = function () {
+            this.image.x += constants.BULLET_SPEED;
+            if (this.image.x > stage.canvas.width) {
+                this.bulletReset();
             }
         };
 
         Bullet.prototype.bulletReset = function () {
+            this.image.y = 700;
+            //game.removeChild(this.image);
         };
         return Bullet;
     })();

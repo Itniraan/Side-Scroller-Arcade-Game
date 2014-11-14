@@ -3,32 +3,41 @@
 /// <reference path="../objects/enemy.ts" />
 /// <reference path="../objects/star.ts" />
 /// <reference path="../objects/bullet.ts" />
-/// <reference path="../objects/ocean.ts" />
+/// <reference path="../objects/lava.ts" />
 /// <reference path="../managers/collision.ts" />
 /// <reference path="../objects/scoreboard.ts" />
 var states;
 (function (states) {
     function playState() {
-        ocean.update();
+        lava.update();
         star.update();
 
         for (var count = 0; count < constants.ENEMY_NUM; count++) {
             enemies[count].update();
         }
+        managers.collisionCheck();
+        console.log(managers.collisionCheck());
+        for (var i = 0; i < bullets.length; i++) {
+            bullets[i].bulletUpdate();
+            //if (managers.bulletAndEnemy) {
+            //    bullets[i].destroy();
+            //    bullets.splice[i];
+            //}
+        }
 
         plane.update();
-        managers.collisionCheck();
         scoreboard.update();
 
         if (scoreboard.lives <= 0) {
             states.getHighScore(scoreboard.score);
             stage.removeChild(game);
             plane.destroy();
-            ocean.destroy();
+            lava.destroy();
             star.destroy();
 
             game.removeAllChildren();
             game.removeAllEventListeners();
+            stage.removeChild(game);
 
             currentState = constants.GAME_OVER_STATE;
             changeState(currentState);
@@ -40,10 +49,9 @@ var states;
     function play() {
         game = new createjs.Container();
         stage.cursor = "none";
-        ocean = new objects.Ocean(stage, game);
+        lava = new objects.Lava(stage, game);
         star = new objects.Star(stage, game);
         plane = new objects.Plane(stage, game);
-        bullet = new objects.Bullet(stage, game);
 
         for (var count = 0; count < constants.ENEMY_NUM; count++) {
             enemies[count] = new objects.Enemy(stage, game);
@@ -52,16 +60,6 @@ var states;
         scoreboard = new objects.scoreBoard(stage, game);
 
         stage.addChild(game);
-        //for (var i = 0; i < constants.BULLET_POOL_SIZE; i++) {
-        // Initalize the bullet object
-        //    bullet = new objects.Bullet();
-        //    bullets[i] = bullet;
-        //}
-        //stage.on("click", function (e) {
-        //    console.log("Fire!!");
-        //    bullets.push(bullet);
-        //    bullet.fireBullet();
-        //});
     }
     states.play = play;
 })(states || (states = {}));

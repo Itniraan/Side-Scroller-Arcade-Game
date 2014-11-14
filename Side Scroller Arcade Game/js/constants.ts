@@ -6,8 +6,8 @@
     // Game Constants
     export var ENEMY_NUM: number = 3;
     export var LABEL_FONT = "30px Consolas";
-    export var LABEL_COLOUR = "#FFFF00";
+    export var LABEL_COLOUR = "#FFFFFF";
     export var PLAYER_LIVES = 3;
-    export var BULLET_SPEED = 15;
+    export var BULLET_SPEED = 5;
     export var BULLET_POOL_SIZE = 50;
 } 

@@ -31,8 +31,8 @@ module managers {
         return result;
     }
 
-    // Check collision between plane and island
-    export function planeAndIsland() {
+    // Check collision between plane and star
+    export function planeAndStar() {
         var point1: createjs.Point = new createjs.Point();
         var point2: createjs.Point = new createjs.Point();
 
@@ -73,11 +73,9 @@ module managers {
     }
 
     // Check collision between plane and cloud
-    export function planeAndEnemy(theEnemy: objects.Enemy) {
+    export function planeAndEnemy(enemy: objects.Enemy) {
         var p1: createjs.Point = new createjs.Point();
         var p2: createjs.Point = new createjs.Point();
-        var enemy: objects.Enemy = new objects.Enemy(stage, game);
-        enemy = theEnemy;
         p1.x = plane.image.x;
         p1.y = plane.image.y;
         p2.x = enemy.image.x;
@@ -91,18 +89,18 @@ module managers {
 
     // Check all collisions
     export function collisionCheck() {
-        planeAndIsland();
+        planeAndStar();
         for (var count = 0; count < constants.ENEMY_NUM; count++) {
             planeAndEnemy(enemies[count]);
-            bulletAndEnemy(enemies[count]);
+            for (var i = 0; i < bullets.length; i++) {
+                bulletAndEnemy(enemies[count], bullets[i]);
+            }
         };
     }
-
-    export function bulletAndEnemy(theEnemy: objects.Enemy) {
+    
+    export function bulletAndEnemy(enemy: objects.Enemy, bullet: objects.Bullet) {
         var point1: createjs.Point = new createjs.Point();
         var point2: createjs.Point = new createjs.Point();
-        var enemy: objects.Enemy = new objects.Enemy(stage, game);
-        enemy = theEnemy;
 
         point1.x = bullet.image.x;
         point1.y = bullet.image.y;
@@ -110,9 +108,10 @@ module managers {
         point2.x = enemy.image.x;
         point2.y = enemy.image.y;
         if (distance(point1, point2) < ((bullet.height * 0.5) + (enemy.height * 0.5))) {
-            //createjs.Sound.play("yay");
+            createjs.Sound.play("explosionAudio");
             scoreboard.score += 100;
             enemy.reset();
+            bullet.bulletReset();
         };
     }
 

@@ -22,20 +22,16 @@ module objects {
             game.addChild(this.image);
         }
 
-        bulletUpdate(bullets = []) {
-            var bLimit = bullets.length - 1;
-
-            for (var i = bLimit; i >= 0; --i) {
-                bullets[i].x += constants.BULLET_SPEED;
-                if (bullets[i].x > 640) {
-                    stage.removeChild(bullets[i]);
-                    bullets.splice(i, 1)
-                }
+        bulletUpdate() {
+            this.image.x += constants.BULLET_SPEED;
+            if (this.image.x > stage.canvas.width) {
+                this.bulletReset();
             }
         }
 
         bulletReset() {
-            
+            this.image.y = 700;
+            //game.removeChild(this.image);
         }
     }
 } 

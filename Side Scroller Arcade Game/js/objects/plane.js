@@ -12,6 +12,13 @@
             this.image.regY = this.height * 0.5;
             this.dx = 5;
 
+            this.image.addEventListener("click", function (e) {
+                createjs.Sound.play("shootAudio");
+                bullet = new objects.Bullet(stage, game);
+                bullets.push(bullet);
+                bullets[bullets.length - 1].fireBullet();
+            });
+
             game.addChild(this.image);
             // Play engine sound forever
             //createjs.Sound.play("engine", 0, 0, 0, -1, 1, 0);

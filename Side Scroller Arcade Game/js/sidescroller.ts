@@ -4,7 +4,7 @@
 /// <reference path="states/gameoverscreen.ts" />
 /// <reference path="objects/plane.ts" />
 /// <reference path="objects/enemy.ts" />
-/// <reference path="objects/ocean.ts" />
+/// <reference path="objects/lava.ts" />
 /// <reference path="objects/star.ts" />
 /// <reference path="objects/scoreboard.ts" />
 /// <reference path="objects/bullet.ts" />
@@ -27,12 +27,13 @@ var queue;
 // Game Objects
 var plane: objects.Plane;
 var star: objects.Star;
-var ocean: objects.Ocean;
+var lava: objects.Lava;
 var scoreboard: objects.scoreBoard;
 var bullet: objects.Bullet;
 
 // Enemy Array
 var enemies = [];
+var bullets = [];
 
 // State variables
 var currentState: number;
@@ -50,8 +51,9 @@ function preload(): void {
         { id: "explosionAudio", src: "assets/audio/Explosion.mp3" },
         { id: "pickupAudio", src: "assets/audio/pickupStar.mp3" },
         { id: "lifeUpAudio", src: "assets/audio/lifeUp.mp3" },
+        { id: "shootAudio", src: "assets/audio/Laser_Shoot.mp3" },
         { id: "plane", src: "assets/img/Endymion_Sprite.png" },
-        { id: "ocean", src: "assets/img/ocean.gif" },
+        { id: "lava", src: "assets/img/lava-tileset.png" },
         { id: "bullet", src: "assets/img/bullet-basic.png" },
         { id: "enemy", src: "assets/img/Einhander_2.png" },
         { id: "star", src: "assets/img/star.png" },
