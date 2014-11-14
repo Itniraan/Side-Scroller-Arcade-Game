@@ -1,4 +1,10 @@
-﻿var objects;
+﻿/**
+File Name: star.ts
+Author: Blake Murdock
+Website Name: Star object class for Star Savior Side-Scrolling Arcade Game
+Purpose: This file contains all details to initalize a Star object
+*/
+var objects;
 (function (objects) {
     // Star Class
     var Star = (function () {
@@ -15,11 +21,13 @@
             game.addChild(this.image);
             this.reset();
         }
+        // Function to reset star off screen
         Star.prototype.reset = function () {
             this.image.x = 630;
             this.image.y = Math.floor(Math.random() * stage.canvas.height);
         };
 
+        // Function to update position of star.
         Star.prototype.update = function () {
             this.image.x -= this.dy;
             if (this.image.x < 0) {
@@ -27,6 +35,7 @@
             }
         };
 
+        // Function to remove star from the game
         Star.prototype.destroy = function () {
             game.removeChild(this.image);
         };

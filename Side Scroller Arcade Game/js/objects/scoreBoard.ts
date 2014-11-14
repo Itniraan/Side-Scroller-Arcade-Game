@@ -1,5 +1,12 @@
 ﻿/// <reference path="../constants.ts" />
+/**
+File Name: scoreBoard.ts
+Author: Blake Murdock
+Website Name: Scorboard object class for Star Savior Side-Scrolling Arcade Game
+Purpose: This file contains all details to initalize a Scoreboard object
+*/
 module objects {
+    // Scoreboard class
     export class scoreBoard {
         label: createjs.Text;
         stage: createjs.Stage;
@@ -20,6 +27,7 @@ module objects {
             game.addChild(this.label);
         }
 
+        // Functon to update score on screen
         update() {
             this.labelString = "Lives: " + this.lives.toString() + " Score: " + this.score.toString();
             this.label.text = this.labelString;

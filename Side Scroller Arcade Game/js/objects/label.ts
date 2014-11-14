@@ -1,4 +1,10 @@
 ﻿/// <reference path="../constants.ts" />
+/**
+File Name: label.ts
+Author: Blake Murdock
+Website Name: Label object class for Star Savior Side-Scrolling Arcade Game
+Purpose: This file contains all details to initalize a Label object
+*/
 module objects {
     export class Label extends createjs.Text {
         constructor(x: number, y: number, labelText: string) {

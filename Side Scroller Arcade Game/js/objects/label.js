@@ -5,6 +5,12 @@
     d.prototype = new __();
 };
 /// <reference path="../constants.ts" />
+/**
+File Name: label.ts
+Author: Blake Murdock
+Website Name: Label object class for Star Savior Side-Scrolling Arcade Game
+Purpose: This file contains all details to initalize a Label object
+*/
 var objects;
 (function (objects) {
     var Label = (function (_super) {

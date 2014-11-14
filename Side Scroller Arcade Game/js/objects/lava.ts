@@ -1,4 +1,10 @@
-﻿module objects {
+﻿/**
+File Name: lava.ts
+Author: Blake Murdock
+Website Name: Lava object class for Star Savior Side-Scrolling Arcade Game
+Purpose: This file contains all details to initalize a Lava object
+*/
+module objects {
     // Lava Class
     export class Lava {
         image: createjs.Bitmap;
@@ -24,14 +30,17 @@
             this.reset2();
         }
 
+        // Function to reset position of first lava image.
         reset1() {
             this.image.x = 628;
         }
 
+        // Function to reset position of second lava image.
         reset2() {
             this.image2.x = 0;
         }
 
+        // Function to update position of lava.
         update() {
             this.image.x -= this.dx;
             this.image2.x -= this.dx;
@@ -43,6 +52,7 @@
             }
         }
 
+        // Function to destroy lava object.
         destroy() {
             this.game.removeChild(this.image);
             this.game.removeChild(this.image2);

@@ -1,4 +1,10 @@
-﻿module objects {
+﻿/**
+File Name: enemy.ts
+Author: Blake Murdock
+Website Name: Enemy object class for Star Savior Side-Scrolling Arcade Game
+Purpose: This file contains all details to initalize a enemy object
+*/
+module objects {
     // Enemy Class
     export class Enemy {
         image: createjs.Bitmap;
@@ -22,12 +28,14 @@
             this.reset();
         }
 
+        // Function to reset enemy off screen
         reset() {
             this.image.x = 1500;
             this.image.y = Math.floor(Math.random() * stage.canvas.height);
             this.dx = Math.floor(Math.random() * 5 + 5);
         }
 
+        // Function to update position of enemy.
         update() {
             this.image.x -= this.dx;
             if (this.image.x < 0) {
@@ -35,6 +43,7 @@
             }
         }
 
+        // Function to remove enemy from the game
         destroy() {
             game.removeChild(this.image);
         }

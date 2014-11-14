@@ -6,8 +6,15 @@
 /// <reference path="../objects/lava.ts" />
 /// <reference path="../managers/collision.ts" />
 /// <reference path="../objects/scoreboard.ts" />
+/**
+File Name: playGameLevelOne.ts
+Author: Blake Murdock
+Website Name: This is the game play screen state for Star Savior
+Purpose: This file contains all of the elements of the game play screen
+*/
 var states;
 (function (states) {
+    // Game loop function, that makes sure everything runs smoothly
     function playState() {
         lava.update();
         star.update();
@@ -19,15 +26,12 @@ var states;
         console.log(managers.collisionCheck());
         for (var i = 0; i < bullets.length; i++) {
             bullets[i].bulletUpdate();
-            //if (managers.bulletAndEnemy) {
-            //    bullets[i].destroy();
-            //    bullets.splice[i];
-            //}
         }
 
         plane.update();
         scoreboard.update();
 
+        // If lives is 0 or lower, destroy all objects and go to gameover screen
         if (scoreboard.lives <= 0) {
             states.getHighScore(scoreboard.score);
             stage.removeChild(game);
@@ -48,6 +52,8 @@ var states;
     // play state Function
     function play() {
         game = new createjs.Container();
+
+        // Set mouse cursor to none (avatar will take place of cursor
         stage.cursor = "none";
         lava = new objects.Lava(stage, game);
         star = new objects.Star(stage, game);
@@ -63,4 +69,4 @@ var states;
     }
     states.play = play;
 })(states || (states = {}));
-//# sourceMappingURL=playGameLevelOneScreen.js.map
+//# sourceMappingURL=playgamelevelonescreen.js.map

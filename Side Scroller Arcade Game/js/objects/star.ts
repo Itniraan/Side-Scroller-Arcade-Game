@@ -1,4 +1,10 @@
-﻿module objects {
+﻿/**
+File Name: star.ts
+Author: Blake Murdock
+Website Name: Star object class for Star Savior Side-Scrolling Arcade Game
+Purpose: This file contains all details to initalize a Star object
+*/
+module objects {
     // Star Class
     export class Star {
         image: createjs.Bitmap;
@@ -22,11 +28,13 @@
             this.reset();
         }
 
+        // Function to reset star off screen
         reset() {
             this.image.x = 630;
             this.image.y = Math.floor(Math.random() * stage.canvas.height);
         }
 
+        // Function to update position of star.
         update() {
             this.image.x -= this.dy;
             if (this.image.x < 0) {
@@ -34,6 +42,7 @@
             }
         }
 
+        // Function to remove star from the game
         destroy() {
             game.removeChild(this.image);
         }

@@ -2,9 +2,16 @@
 /// <reference path="../objects/plane.ts" />
 /// <reference path="../objects/bullet.ts" />
 /// <reference path="../objects/enemy.ts" />
+/**
+File Name: collision.ts
+Author: Blake Murdock
+Website Name: Collision class for Star Savior Side-Scrolling Arcade Game
+Purpose: This file contains the manager for all collisions between objects
+*/
 var managers;
 (function (managers) {
     // The Distance Function
+    // Checks the distance between two objects
     function distance(p1, p2) {
         var firstPoint;
         var secondPoint;
@@ -76,7 +83,7 @@ var managers;
     }
     managers.planeAndStar = planeAndStar;
 
-    // Check collision between plane and cloud
+    // Check collision between plane and enemy
     function planeAndEnemy(enemy) {
         var p1 = new createjs.Point();
         var p2 = new createjs.Point();
@@ -105,6 +112,7 @@ var managers;
     }
     managers.collisionCheck = collisionCheck;
 
+    // Check collision between bullet and enemy
     function bulletAndEnemy(enemy, bullet) {
         var point1 = new createjs.Point();
         var point2 = new createjs.Point();

@@ -1,4 +1,10 @@
-﻿var constants;
+﻿/**
+File Name: constants.ts
+Author: Blake Murdock
+Website Name: Constants class for Star Savior Side-Scrolling Arcade Game
+Purpose: This file contains all constant variables that will be used in the game
+*/
+var constants;
 (function (constants) {
     // State Machine Constants
     constants.MENU_STATE = 0;
@@ -11,6 +17,5 @@
     constants.LABEL_COLOUR = "#FFFFFF";
     constants.PLAYER_LIVES = 3;
     constants.BULLET_SPEED = 5;
-    constants.BULLET_POOL_SIZE = 50;
 })(constants || (constants = {}));
 //# sourceMappingURL=constants.js.map

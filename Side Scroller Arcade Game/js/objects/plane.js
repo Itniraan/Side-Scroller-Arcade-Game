@@ -1,4 +1,10 @@
-﻿var objects;
+﻿/**
+File Name: plane.ts
+Author: Blake Murdock
+Website Name: Plane object class for Star Savior Side-Scrolling Arcade Game
+Purpose: This file contains all details to initalize a plane object
+*/
+var objects;
 (function (objects) {
     // Plane Class
     var Plane = (function () {
@@ -23,11 +29,13 @@
             // Play engine sound forever
             //createjs.Sound.play("engine", 0, 0, 0, -1, 1, 0);
         }
+        // Function to update position of plane.
         Plane.prototype.update = function () {
             this.image.x = stage.mouseX;
             this.image.y = stage.mouseY;
         };
 
+        // Function to destroy plane object.
         Plane.prototype.destroy = function () {
             game.removeChild(this.image);
         };
